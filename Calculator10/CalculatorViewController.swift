@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalculatorViewController.swift
 //  Calculator10
 //
 //  Created by John Patton on 3/11/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var descriptionDisplay: UILabel!
@@ -95,5 +95,42 @@ class ViewController: UIViewController {
         brain.resetBrain()
         
     }
+    
+    // This function supports the graphing view
+    private func setVariable(to value: Double) -> Double {
+        let tempVariables = ["M": value]
+        return brain.evaluate(using: tempVariables).result!
+    }
+    
+    // MARK: Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        var destinationViewController = segue.destination
+        
+        switch segue.identifier! {
+        case "showGraph":
+            if let navigationController = segue.destination as? UINavigationController {
+                destinationViewController = navigationController.visibleViewController ?? destinationViewController
+            }
+            if let graphViewController = destinationViewController as? GraphViewController, brain.evaluate(using: savedVariables).isPending == false {
+                graphViewController.navigationItem.title = brain.evaluate(using: savedVariables).description
+                graphViewController.graphViewFunction = setVariable(to:)
+            }
+        default:
+            break
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        switch identifier {
+        case "showGraph":
+            return !brain.evaluate(using: savedVariables).isPending
+        default:
+            return true
+        }
+    }
+    
+    
 }
 

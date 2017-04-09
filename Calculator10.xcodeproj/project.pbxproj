@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		52283AE11E7467350004134E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52283AE01E7467350004134E /* AppDelegate.swift */; };
-		52283AE31E7467350004134E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52283AE21E7467350004134E /* ViewController.swift */; };
+		52283AE31E7467350004134E /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52283AE21E7467350004134E /* CalculatorViewController.swift */; };
 		52283AE61E7467350004134E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52283AE41E7467350004134E /* Main.storyboard */; };
 		52283AE81E7467350004134E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52283AE71E7467350004134E /* Assets.xcassets */; };
 		52283AEB1E7467350004134E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52283AE91E7467350004134E /* LaunchScreen.storyboard */; };
 		52283AF41E74F6C10004134E /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52283AF31E74F6C10004134E /* CalculatorBrain.swift */; };
+		524139771E8CB85100970DF5 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524139761E8CB85100970DF5 /* AxesDrawer.swift */; };
+		524139791E8DF33400970DF5 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524139781E8DF33400970DF5 /* GraphViewController.swift */; };
+		5241397B1E8DF41000970DF5 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241397A1E8DF41000970DF5 /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		52283ADD1E7467350004134E /* Calculator10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator10.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52283AE01E7467350004134E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52283AE21E7467350004134E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		52283AE21E7467350004134E /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		52283AE51E7467350004134E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52283AE71E7467350004134E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52283AEA1E7467350004134E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52283AEC1E7467350004134E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52283AF31E74F6C10004134E /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
+		524139761E8CB85100970DF5 /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = "<group>"; };
+		524139781E8DF33400970DF5 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		5241397A1E8DF41000970DF5 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +62,11 @@
 		52283ADF1E7467350004134E /* Calculator10 */ = {
 			isa = PBXGroup;
 			children = (
-				52283AE21E7467350004134E /* ViewController.swift */,
+				52283AE21E7467350004134E /* CalculatorViewController.swift */,
+				524139781E8DF33400970DF5 /* GraphViewController.swift */,
 				52283AF31E74F6C10004134E /* CalculatorBrain.swift */,
+				5241397A1E8DF41000970DF5 /* GraphView.swift */,
+				524139761E8CB85100970DF5 /* AxesDrawer.swift */,
 				52283AE41E7467350004134E /* Main.storyboard */,
 				52283AF21E7467CA0004134E /* Supporting Files */,
 			);
@@ -148,8 +157,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				52283AF41E74F6C10004134E /* CalculatorBrain.swift in Sources */,
-				52283AE31E7467350004134E /* ViewController.swift in Sources */,
+				524139791E8DF33400970DF5 /* GraphViewController.swift in Sources */,
+				524139771E8CB85100970DF5 /* AxesDrawer.swift in Sources */,
+				52283AE31E7467350004134E /* CalculatorViewController.swift in Sources */,
 				52283AE11E7467350004134E /* AppDelegate.swift in Sources */,
+				5241397B1E8DF41000970DF5 /* GraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +323,7 @@
 				52283AF11E7467350004134E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
