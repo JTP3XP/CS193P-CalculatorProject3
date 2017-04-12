@@ -8,10 +8,15 @@
 
 import UIKit
 
-class CalculatorViewController: UIViewController {
+class CalculatorViewController: UIViewController, UISplitViewControllerDelegate {
 
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var descriptionDisplay: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.splitViewController?.delegate = self
+    }
     
     var userIsInTheMiddleOfTyping = false
     
@@ -105,15 +110,9 @@ class CalculatorViewController: UIViewController {
     // MARK: Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        var destinationViewController = segue.destination
-        
         switch segue.identifier! {
         case "showGraph":
-            if let navigationController = segue.destination as? UINavigationController {
-                destinationViewController = navigationController.visibleViewController ?? destinationViewController
-            }
-            if let graphViewController = destinationViewController as? GraphViewController, brain.evaluate(using: savedVariables).isPending == false {
+            if let graphViewController = segue.destination.contents as? GraphViewController, brain.evaluate(using: savedVariables).isPending == false {
                 graphViewController.navigationItem.title = brain.evaluate(using: savedVariables).description
                 graphViewController.graphViewFunction = setVariable(to:)
             }
@@ -131,6 +130,30 @@ class CalculatorViewController: UIViewController {
         }
     }
     
+    // MARK: UISplitViewController Delegate Functions
     
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        if primaryViewController.contents == self {
+            if let graphViewController = secondaryViewController.contents as? GraphViewController, graphViewController.graphViewFunction == nil {
+                // collapse detail if it is a blank graph view controller, which is the case at launch
+                return true
+            }
+        }
+        return false
+    }
+    
+}
+
+// MARK:- Extensions
+
+extension UIViewController {
+    
+    var contents: UIViewController {
+        if let navigationController = self as? UINavigationController {
+            return navigationController.visibleViewController ?? self
+        } else {
+            return self
+        }
+    }
 }
 
